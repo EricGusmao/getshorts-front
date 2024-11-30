@@ -1,10 +1,10 @@
 "use client";
 
-import Head from "@/components/Head";
-import Slogan from "@/components/Slogan";
-import LinkBox from "@/components/LinkBox";
-import HowToUse from "@/components/HowToUse";
-import Footer from "./_components/Footer";
+import Head from "@/components/head";
+import Slogan from "@/components/slogan";
+import LinkBox from "@/components/linkbox";
+import HowToUse from "@/components/how-to-use";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
