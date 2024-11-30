@@ -1,6 +1,3 @@
-
-
-
 const Slogan = () => {
   return (
     <div className="flex flex-col justify-center text-center gap-5 m-10 text-white">
