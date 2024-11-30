@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-const Head = ({ platform }: { platform: string }) => {
+const reloadPage = () => {
+  window.location.href = '/';
+}
 
-  platform = platform || 'TikService';
-  console.log('platform: ', platform);
-
+const Head = () => {
   return (
-    <div className="bg-black p-5 text-white">
+    <div className="bg-black p-5 text-white" onClick={reloadPage}>
         <div className="flex gap-5">
         <Image src="/logo.png" alt="TikService" width={64} height={64} className="inline cursor-pointer" />
         <h1 className="inline self-center gap-10 cursor-pointer text-3xl font-semibold">GetShorts</h1>
