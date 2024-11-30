@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select"
 
 import { IoMdDownload } from "react-icons/io";
+import { fetchVideo } from 'server/fetchVideo';
 
 const LinkBox = () => {
   const [url, setUrl] = useState<string>('');
@@ -20,11 +21,10 @@ const LinkBox = () => {
   const [videoName, setVideoName] = useState<string | null>('');
 
   const [loading, setLoading] = useState(false);
-  const [resolution, setResolution] = useState<string>('144');
+  const [resolution, setResolution] = useState<string>('best');
   const [downloadMode, setDownloadMode] = useState<string>('video');
   const [platform, setPlatform] = useState<string>('Base');
-
-  const SERVER_URL = "https://tikvideofetch.slocksert.dev/video";
+  console.log(platform);  
 
   const { toast } = useToast();
 
@@ -54,23 +54,8 @@ const LinkBox = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(SERVER_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          url,
-          resolution,
-          downloadMode
-        })
-      });
+      const data = await fetchVideo(url, resolution, downloadMode); // fetch video from server
 
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.status}`);
-      }
-
-      const data = await response.json();
       if (data.videoUrl) {
         setVideoUrl(data.videoUrl);
         setChannelName(data.channelName);
@@ -139,9 +124,9 @@ const LinkBox = () => {
               <video src={videoUrl} className="h-96 w-96" controls />
             </div>
             <div className="mb-4 w-72 self-center text-justify">
-              <p><strong>Channel Name:</strong> {channelName}</p>
+              <p><strong>Channel:</strong> {channelName}</p>
               <br></br>
-              <p><strong>Video Name:</strong> {videoName}</p>
+              <p><strong>Description:</strong> {videoName}</p>
             </div>
             <div className="downloadButton self-center">
               <Button variant="default" onClick={(e) => {
