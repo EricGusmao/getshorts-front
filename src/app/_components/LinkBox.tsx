@@ -100,31 +100,37 @@ const LinkBox = () => {
 
   useEffect(() => {
     if (videoUrl) {
-      const downloadButton = document.querySelector('.buttonDownload');
+      const downloadButton = document.querySelector(".buttonDownload");
       if (downloadButton) {
-        downloadButton.scrollIntoView({ behavior: 'smooth' });
+        downloadButton.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [videoUrl]);
 
   return (
     <>
-      <Form 
-        SendLink={SendLink} handleChange={handleChange} 
-        setDownloadMode={setDownloadMode} setResolution={setResolution} 
-        setUrl={setUrl} url={url}>
-      </Form>
+      <Form
+        SendLink={SendLink}
+        handleChange={handleChange}
+        setDownloadMode={setDownloadMode}
+        setResolution={setResolution}
+        setUrl={setUrl}
+        url={url}
+      ></Form>
 
-        {loading && <Spinner size="large" className="mt-16" show={true} />}
+      {loading && <Spinner size="large" className="mt-16" show={true} />}
 
       {!loading && videoUrl && (
-        <div className="m-5 flex justify-center items-center">
-        <div className="text-white bg-zinc-800 p-4 rounded-lg max-w-md flex flex-col">
-          <VideoPlayer videoUrl={videoUrl} />
-          <VideoDescription channelName={channelName || ''} videoName={videoName || ''} />
-          <DownloadButton videoUrl={videoUrl} videoName={videoName || ''} />
+        <div className="m-5 flex items-center justify-center">
+          <div className="flex max-w-md flex-col rounded-lg bg-zinc-800 p-4 text-white">
+            <VideoPlayer videoUrl={videoUrl} />
+            <VideoDescription
+              channelName={channelName || ""}
+              videoName={videoName || ""}
+            />
+            <DownloadButton videoUrl={videoUrl} videoName={videoName || ""} />
+          </div>
         </div>
-      </div>
       )}
     </>
   );

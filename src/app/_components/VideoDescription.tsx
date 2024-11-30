@@ -3,11 +3,18 @@ interface VideoDescriptionProps {
   videoName: string;
 }
 
-const VideoDescription: React.FC<VideoDescriptionProps> = ({ channelName, videoName }) => (
+const VideoDescription: React.FC<VideoDescriptionProps> = ({
+  channelName,
+  videoName,
+}) => (
   <div className="mb-4 w-72 self-center text-justify">
-    <p><strong>Channel:</strong> {channelName}</p>
+    <p>
+      <strong>Channel:</strong> {channelName}
+    </p>
     <br />
-    <p><strong>Description:</strong> {videoName}</p>
+    <p>
+      <strong>Description:</strong> {videoName}
+    </p>
   </div>
 );
 
