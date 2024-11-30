@@ -1,13 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const reloadPage = () => {
-  window.location.href = "/";
-};
-
-const Head = () => {
+const Header = () => {
   return (
-    <div className="bg-black p-5 text-white" onClick={reloadPage}>
-      <div className="flex gap-5">
+    <header className="bg-black p-5 text-white">
+      <Link href="/" className="flex gap-5">
         <Image
           src="/logo.png"
           alt="TikService"
@@ -18,9 +15,9 @@ const Head = () => {
         <h1 className="inline cursor-pointer gap-10 self-center text-3xl font-semibold">
           GetShorts
         </h1>
-      </div>
-    </div>
+      </Link>
+    </header>
   );
 };
 
-export default Head;
+export default Header;
