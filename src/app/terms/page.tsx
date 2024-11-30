@@ -1,14 +1,14 @@
 "use client";
 
-import Footer from "@/components/Footer";
-import Head from "@/components/Head";
-import { Terms } from "@/components/Terms";
+import Footer from "@/components/footer";
+import Head from "@/components/head";
+import TermsOfService from "@/components/terms-of-service";
 
 export default function Home() {
   return (
     <div>
       <Head />
-      <Terms />
+      <TermsOfService />
       <Footer />
     </div>
   );
