@@ -1,6 +1,3 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-
 export default function TermsLayout({
   children,
 }: Readonly<{
@@ -8,9 +5,7 @@ export default function TermsLayout({
 }>) {
   return (
     <>
-      <Header />
       <main>{children}</main>
-      <Footer />
     </>
   );
 }

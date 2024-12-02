@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div className="mx-auto max-w-3xl p-4 text-white">
+    <div className="mx-auto max-w-3xl p-4">
       <h1 className="mb-4 text-3xl font-semibold">
         Terms of Service - GetShorts™
       </h1>
@@ -230,7 +230,7 @@ export default function Page() {
           linked website is at the User&apos;s own risk.
         </p>
       </section>
-      <section className="mb-24">
+      <section className="mb-6">
         <h2 className="text-2xl font-semibold">Terms of Use - Modifications</h2>
         <p>
           These Terms of Service may be amended by GetShorts at any time upon
